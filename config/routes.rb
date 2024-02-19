@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get 'about', to:'pages#about'
   #resources :articles, only: [:show, :index, :new, :create, :edit, :update]  "used for specific article operations"
   resources :articles
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 end
