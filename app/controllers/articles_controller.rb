@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params) #it took the required param id and permited the field like title and description
-		@article.user = User.first
+		@article.user = current_user
 		if @article.save
 			flash[:notice] = "Article was created successfully."
 			redirect_to @article #alternative code of this line 'redirect_to article_path(@article)'
